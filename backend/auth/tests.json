@@ -1,0 +1,25 @@
+{
+  "tests": [
+    {
+      "name": "Register new user",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "register", "display_name": "Тест Юзер 2", "email": "test_cipher_002@example.com", "password": "secret123"},
+      "expectedStatus": 200
+    },
+    {
+      "name": "Login with email",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "login", "identity": "test_cipher_002@example.com", "password": "secret123"},
+      "expectedStatus": 200
+    },
+    {
+      "name": "Wrong password",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "login", "identity": "test_cipher_002@example.com", "password": "wrongpass"},
+      "expectedStatus": 401
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+CREATE TABLE t_p54251854_simple_messenger_pro.users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE,
+    phone VARCHAR(30) UNIQUE,
+    display_name VARCHAR(100) NOT NULL,
+    username VARCHAR(50) UNIQUE,
+    avatar_url TEXT,
+    status VARCHAR(20) DEFAULT 'offline',
+    bio TEXT DEFAULT '',
+    password_hash VARCHAR(255) NOT NULL,
+    is_verified BOOLEAN DEFAULT FALSE,
+    two_factor_enabled BOOLEAN DEFAULT FALSE,
+    show_online_status BOOLEAN DEFAULT TRUE,
+    read_receipts BOOLEAN DEFAULT TRUE,
+    screen_capture BOOLEAN DEFAULT TRUE,
+    notify_messages BOOLEAN DEFAULT TRUE,
+    notify_sound BOOLEAN DEFAULT TRUE,
+    notify_preview BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    last_seen_at TIMESTAMPTZ DEFAULT NOW()
+)

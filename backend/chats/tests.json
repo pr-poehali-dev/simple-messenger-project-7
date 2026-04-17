@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "name": "Get chats without token",
+      "method": "GET",
+      "path": "/?action=list",
+      "expectedStatus": 401
+    },
+    {
+      "name": "Search users without token",
+      "method": "GET",
+      "path": "/?action=search&q=test",
+      "expectedStatus": 401
+    }
+  ]
+}
