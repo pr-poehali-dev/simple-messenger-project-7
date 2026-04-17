@@ -4,89 +4,56 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 16% 8%;
+    --foreground: 210 20% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 16% 11%;
+    --card-foreground: 210 20% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 16% 11%;
+    --popover-foreground: 210 20% 92%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 168 72% 48%;
+    --primary-foreground: 220 16% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 14% 16%;
+    --secondary-foreground: 210 20% 75%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 14% 48%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 168 72% 48%;
+    --accent-foreground: 220 16% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 92%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 12% 18%;
+    --input: 220 14% 16%;
+    --ring: 168 72% 48%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    --cipher-bg: #0d1117;
+    --cipher-surface: #161b22;
+    --cipher-surface2: #1c2230;
+    --cipher-border: #2a3345;
+    --cipher-accent: #2dd4a0;
+    --cipher-accent-dim: #1a9e74;
+    --cipher-text: #e2e8f0;
+    --cipher-muted: #8892a4;
+    --cipher-online: #22c55e;
+    --cipher-away: #f59e0b;
+    --cipher-encrypted: #7c6df0;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 16% 9%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 168 72% 48%;
+    --sidebar-primary-foreground: 220 16% 8%;
+    --sidebar-accent: 220 14% 16%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 168 72% 48%;
   }
 }
 
@@ -97,5 +64,152 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Golos Text", sans-serif;
+    background-color: var(--cipher-bg);
+    color: var(--cipher-text);
   }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--cipher-border);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--cipher-muted);
+  }
+}
+
+@layer utilities {
+  .cipher-surface {
+    background-color: var(--cipher-surface);
+  }
+  .cipher-surface2 {
+    background-color: var(--cipher-surface2);
+  }
+  .cipher-border {
+    border-color: var(--cipher-border);
+  }
+  .cipher-accent {
+    color: var(--cipher-accent);
+  }
+  .cipher-bg-accent {
+    background-color: var(--cipher-accent);
+  }
+  .cipher-muted {
+    color: var(--cipher-muted);
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease forwards;
+  }
+  .animate-slide-in {
+    animation: slideIn 0.25s ease forwards;
+  }
+  .animate-message-in {
+    animation: messageIn 0.2s ease forwards;
+  }
+  .hover-scale {
+    transition:
+      transform 0.15s ease,
+      background-color 0.15s ease;
+  }
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+  .encrypt-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--cipher-encrypted) 0%,
+      var(--cipher-accent) 50%,
+      var(--cipher-encrypted) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes pulse-online {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0);
+  }
+}
+
+.online-pulse {
+  animation: pulse-online 2s infinite;
+}
+
+.glass-panel {
+  backdrop-filter: blur(12px);
+  background: rgba(22, 27, 34, 0.85);
+  border: 1px solid var(--cipher-border);
+}
+
+.message-bubble-mine {
+  background: linear-gradient(
+    135deg,
+    var(--cipher-accent-dim),
+    var(--cipher-accent)
+  );
+  color: var(--cipher-bg);
+  border-radius: 18px 18px 4px 18px;
+}
+
+.message-bubble-other {
+  background: var(--cipher-surface2);
+  color: var(--cipher-text);
+  border-radius: 18px 18px 18px 4px;
+  border: 1px solid var(--cipher-border);
 }
